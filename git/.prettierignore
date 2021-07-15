@@ -1,0 +1,9 @@
+.cache
+.github
+reqs/**
+docs/**
+build/**
+*.md
+*.json
+.pre-commit-config.yaml
+test/**

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+<base href="/minuteclinic/covid-19-testing/" id="base-mc"/> <meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0, user-scalable=yes" name="viewport">
+<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />-->
+<title>MinuteClinic</title>
+<meta content="" name="description">
+<link href="" rel="canonical"/>
+<link href="" hreflang="en-us" rel="alternate"/>
+<link href="" hreflang="es-us" rel="alternate"/>
+<meta content="!" name="fragment"/>
+<!-- Chrome, Firefox OS and Opera -->
+<meta content="#CC0000" name="theme-color"/>
+<!-- Windows Phone -->
+<meta content="#CC0000" name="msapplication-navbutton-color"/>
+<!-- iOS Safari -->
+<meta content="#CC0000" name="apple-mobile-web-app-status-bar-style"/>
+<!--<link id="" rel="icon" type="image/x-icon" href="/mcwebcontent/ui/dist/favicon.ico">-->
+<!--<link rel="stylesheet" type="text/css" href="/bizcontent/minuteclinic/desktop/general/business.css">-->
+<style type="text/css">
+    html,
+    body {
+      background: #ffffff;
+    }
+
+    .app-main-container {
+      min-height: 180px;
+    }
+
+    .spinner:before,
+    app-root > p:before {
+      text-indent: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 62px;
+      height: 62px;
+      background-size: 62px 62px;
+      background: transparent no-repeat 0 0;
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 175px;
+      margin-left: auto;
+      margin-right: auto;
+      -webkit-animation: spin 1.5s linear infinite;
+      -moz-animation: spin 1.5s linear infinite;
+      animation: spin 1.5s linear infinite;
+    }
+
+    .spinner:before,
+    app-root > p:before {
+      background-image: url("data:image/svg+xml;charset=utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCIgWw0KCTwhRU5USVRZIHN0MCAiZmlsbDojQ0MwMDAwOyI+DQoJPCFFTlRJVFkgc3QxICJkaXNwbGF5OmlubGluZTsiPg0KCTwhRU5USVRZIHN0MiAiZGlzcGxheTpub25lOyI+DQpdPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNjJweCINCgkgaGVpZ2h0PSI2MnB4IiB2aWV3Qm94PSIwIDAgNjIgNjIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDYyIDYyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8ZyBpZD0iY2lyY2xlX2d1aWRlIiBzdHlsZT0iJnN0MjsiPg0KCTxjaXJjbGUgc3R5bGU9IiZzdDE7IiBjeD0iMzEiIGN5PSIzMSIgcj0iMzAuNiIvPg0KPC9nPg0KPGcgaWQ9IkxheWVyXzEiPg0KCTxjaXJjbGUgc3R5bGU9IiZzdDA7IiBjeD0iOC43OTciIGN5PSI0My41NDYiIHI9IjAuNjE3Ii8+DQoJPGNpcmNsZSBzdHlsZT0iJnN0MDsiIGN4PSIxOC4yMDQiIGN5PSI1My4wNjIiIHI9IjIuMDA3Ii8+DQoJPHBhdGggc3R5bGU9IiZzdDA7IiBkPSJNMzQuNiw1Ni40ODNjMCwyLjAxMy0xLjYzNSwzLjY0Ny0zLjY0NiwzLjY0N2MtMi4wMTMsMC0zLjY0Ny0xLjYzNS0zLjY0Ny0zLjY0Nw0KCQljMC0yLjAxMiwxLjYzNS0zLjY0NiwzLjY0Ny0zLjY0NkMzMi45NjUsNTIuODM2LDM0LjYsNTQuNDcxLDM0LjYsNTYuNDgzeiIvPg0KCTxwYXRoIHN0eWxlPSImc3QwOyIgZD0iTTQ4LjIyMiw1My4xMzdjMCwyLjQ5MS0yLjAxNiw0LjUwNy00LjUwNyw0LjUwN2MtMi40ODQsMC00LjUtMi4wMTYtNC41LTQuNTA3YzAtMi40ODQsMi4wMTYtNC41LDQuNS00LjUNCgkJQzQ2LjIwNyw0OC42MzcsNDguMjIyLDUwLjY1Myw0OC4yMjIsNTMuMTM3eiIvPg0KCTxjaXJjbGUgc3R5bGU9IiZzdDA7IiBjeD0iNTMuMTg4IiBjeT0iNDMuNTQ2IiByPSI0LjQ3OSIvPg0KCTxwYXRoIHN0eWxlPSImc3QwOyIgZD0iTTYwLjI1MiwzMC44MTJjMCwyLjA1NS0xLjY2NCwzLjcyMy0zLjcyMywzLjcyM2MtMi4wNTUsMC0zLjcxOS0xLjY2OC0zLjcxOS0zLjcyM3MxLjY2NC0zLjcyMywzLjcxOS0zLjcyMw0KCQlDNTguNTg4LDI3LjA4OSw2MC4yNTIsMjguNzU3LDYwLjI1MiwzMC44MTJ6Ii8+DQoJPGNpcmNsZSBzdHlsZT0iJnN0MDsiIGN4PSI1Mi45NjkiIGN5PSIxOC4wMzEiIHI9IjIuMjYyIi8+DQoJPHBhdGggc3R5bGU9IiZzdDA7IiBkPSJNNDQuMzgsOC44MjdjMCwwLjQxNy0wLjMzNywwLjc1Ni0wLjc1NywwLjc1NmMtMC40MTQsMC0wLjc1NC0wLjMzOS0wLjc1NC0wLjc1Ng0KCQljMC0wLjQxOCwwLjM0LTAuNzU1LDAuNzU0LTAuNzU1QzQ0LjA0Myw4LjA3Miw0NC4zOCw4LjQwOSw0NC4zOCw4LjgyN3oiLz4NCjwvZz4NCjwvc3ZnPg0K");
+    }
+
+    app-root > p {
+      text-align: center;
+      margin: 200px 0;
+      padding-left: 10px;
+      color: #000;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    app-root > p span {
+      padding-top: 78px;
+      margin-left: -10px;
+      font-size: 18px;
+      font-weight: bold;
+      display: block;
+    }
+
+    @media all and (max-width: 768px) {
+      .spinner:before,
+      app-root > p:before {
+        top: 100px;
+      }
+      app-root > p span {
+        padding-top: 0;
+        margin-top: -18px;
+        margin-left: -10px;
+      }
+    }
+
+    @-moz-keyframes spin {
+      100% {
+        -moz-transform: rotate(360deg);
+      }
+    }
+
+    @-webkit-keyframes spin {
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin {
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    .force-css-eval {
+      margin-bottom: 3px;
+    }
+    .padding-animation{
+      /*  padding-top: 60px; */
+      top: 0;
+    }
+  </style>
+<link href="/minuteclinic/covid-19-testing/styles.a855924a967471aed550.css" rel="stylesheet"/></meta></meta></head>
+<body #headerfocus="" class="minuteClinicBody" id="minClinicBody">
+<app-root id="top">
+<p><span>Loading...</span></p>
+</app-root>
+<script>
+  utag_data = null;
+  MP = null;
+  WT = null;
+  hstNme = window.location.host;
+
+</script>
+<script crossorigin="anonymous" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" src="https://code.jquery.com/jquery-3.4.1.min.js">
+</script>
+<script src="/minuteclinic/covid-19-testing/runtime-es2015.65563e85f52f6767c60d.js" type="module"></script><script defer="" nomodule="" src="/minuteclinic/covid-19-testing/runtime-es5.65563e85f52f6767c60d.js"></script><script defer="" nomodule="" src="/minuteclinic/covid-19-testing/polyfills-es5.dcb8f62db549f8acd8ce.js"></script><script src="/minuteclinic/covid-19-testing/polyfills-es2015.9b94e8f10d2dbc54e8a6.js" type="module"></script><script defer="" src="/minuteclinic/covid-19-testing/scripts.a41cdab24c3394d910bf.js"></script><script src="/minuteclinic/covid-19-testing/vendor-es2015.a27c3d0d9f7131534052.js" type="module"></script><script defer="" nomodule="" src="/minuteclinic/covid-19-testing/vendor-es5.a27c3d0d9f7131534052.js"></script><script src="/minuteclinic/covid-19-testing/main-es2015.aee673b75ba213ba592f.js" type="module"></script><script defer="" nomodule="" src="/minuteclinic/covid-19-testing/main-es5.aee673b75ba213ba592f.js"></script><script src="/Bc1JE9sp5iAhQLT2bAbq/LEEptD6p/FmpeAQ/WSMmbxsg/b0s" type="text/javascript"></script></body>
+</html>

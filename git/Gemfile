@@ -1,0 +1,9 @@
+source "https://rubygems.org" do
+  gem "dotenv", "~> 2.1.1"
+  gem "git", "~> 1.7.0"
+  gem "hiera-eyaml", "~> 3.2.0"
+  gem "net-ssh", "~> 6.1.0"
+  gem "r10k", "~> 3.6.0"
+  gem "rake", "~> 13.0.1"
+  gem "serverspec", "~> 2.41.5"
+end

@@ -1,0 +1,13 @@
+brew "coreutils"
+brew "git"
+brew "curl"
+brew "sass/sass/sass"
+brew "jq"
+brew "vault"
+brew 'bash-completion'
+brew 'tree'
+
+# Casks
+cask "virtualbox"
+cask "slack"
+cask "google-chome"
